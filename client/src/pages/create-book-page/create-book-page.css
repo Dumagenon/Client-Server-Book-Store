@@ -1,0 +1,33 @@
+.form-field input[type=text]:not(.browser-default),
+.form-field input[type=number]:not(.browser-default) {
+  border: 1px solid #9e9e9e;
+  border-radius: 3px;
+  padding: 0 14px;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+.form-field > div {
+  flex-grow: 1;
+}
+.form-field > div:first-child {
+  margin-right: 16px;
+}
+.form-field {
+  display: flex;
+}
+.form-field:last-child > div:last-child {
+  flex-grow: 0;
+}
+
+.create h3 {
+  margin-bottom: 35px;
+}
+
+@media (max-width: 992px) {
+  .form-field {
+    display: block;
+  }
+  .form-field > div {
+    margin: 10px 0!important;
+  }
+}

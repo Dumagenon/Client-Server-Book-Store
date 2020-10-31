@@ -1,0 +1,10 @@
+.whole-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vh;
+  height: 100vh;
+  font-size: 100px;
+  font-weight: 700;
+  color: black;
+}

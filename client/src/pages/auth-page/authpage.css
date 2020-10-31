@@ -1,0 +1,37 @@
+.auth-tabs {
+  z-index: 2;
+  position: relative;
+}
+.auth-tab {
+  padding: 10px 20px;
+  display: inline-block;
+  border: 1px solid #d8dee2;
+  border-radius: 3px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: all .1s ease-in-out;
+}
+.auth-tab.is-selected {
+  cursor: default;
+  border-bottom-color: white;
+  transform: translateY(9px);
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.card {
+  box-shadow: none;
+  border: 1px solid #d8dee2;
+  transition: all .1s ease-in-out;
+}
+.card .card-content {
+  padding-bottom: 15px;
+}
+.auth-area {
+  width: 50%;
+}
+
+@media (max-width: 992px) {
+  .auth-area {
+    width: 100%;
+  }
+}

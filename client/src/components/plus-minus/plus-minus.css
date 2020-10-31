@@ -1,0 +1,20 @@
+button.plus-minus-btn {
+  font-weight: 500;
+  border: none;
+  padding: 8px 14px 11px;
+  border-radius: 3px;
+  font-size: 15px;
+  line-height: 16px;
+}
+button.plus-minus-btn:hover,
+button.plus-minus-btn:active,
+button.plus-minus-btn:focus {
+  background-color: rgba(0,0,0,.1);
+}
+
+.plus-minus-block .value {
+  border: 1px solid #ccc;
+  padding: 9px 16px 11px;
+  border-radius: 3px;
+  margin: 0 7px;
+}

@@ -1,0 +1,5 @@
+{
+  "port": 5000,
+  "mongoUri": "mongodb+srv://pavel:Zxasqw12@merntcluster.uzmw2.mongodb.net/mern-test?retryWrites=true&w=majority",
+  "jwtSecret": "zaQwsx12"
+}
