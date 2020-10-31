@@ -5,6 +5,8 @@ import { useMessage } from '../../hooks/message.hook';
 import AuthContext from '../../context/auth-context';
 import Loader from '../../components/loader';
 import './reviews-page.css';
+import star from './star.svg';
+import starOut from './star_outline.svg';
 
 export default function ReviewsPage() {
   const message = useMessage();
@@ -79,8 +81,8 @@ export default function ReviewsPage() {
                 <span className="review-stars">
                   <Rating 
                     initialRating={el.rate}
-                    emptySymbol={<i className="tiny material-icons">star_border</i>}
-                    fullSymbol={<i className="tiny material-icons">star</i>}
+                    emptySymbol={<img src={starOut} className="star" alt="star outline" />}
+                    fullSymbol={<img src={star} className="star" alt="Star" />}
                     fractions={2}
                     readonly
                   />
@@ -109,8 +111,8 @@ export default function ReviewsPage() {
               <span>Rate our store:</span> 
               <Rating 
                 initialRating={review.rate}
-                emptySymbol={<i className="small material-icons">star_border</i>}
-                fullSymbol={<i className="small material-icons">star</i>}
+                emptySymbol={<img src={starOut} className="star" alt="star outline" />}
+                fullSymbol={<img src={star} className="star" alt="Star" />}
                 fractions={2}
                 onChange={onRateChange}
               />

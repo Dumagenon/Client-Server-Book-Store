@@ -5,6 +5,7 @@ import StoreContext from '../../context/store-context';
 import { useHttp } from '../../hooks/http.hook';
 import { useMessage } from '../../hooks/message.hook';
 import './nav-menu.css';
+import gamburgerMenu from './menu-icon.svg'
 
 const NavMenu = () => {
   const message = useMessage();
@@ -70,7 +71,7 @@ const NavMenu = () => {
           className="sidenav-trigger mobile-gamb"
           onClick={toggleMobileNav}  
         >
-          <i className="medium material-icons">menu</i>
+          <img src={gamburgerMenu} alt="Menu icon" />
         </button>
         <div className={`side-navigation ${mobileMenu}`}>
           <div className="side-nav_overlay" onClick={toggleMobileNav}/>
@@ -79,7 +80,11 @@ const NavMenu = () => {
               <div className="side-body__title">Menu</div>
               <button type="button" className="side-nav__close"
                 onClick={toggleMobileNav}>
-                <i className="small material-icons">close</i>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 357 357">
+                  <g id="close">
+                    <polygon points="357,35.7 321.3,0 178.5,142.8 35.7,0 0,35.7 142.8,178.5 0,321.3 35.7,357 178.5,214.2 321.3,357 357,321.3     214.2,178.5   " />
+                  </g>
+                </svg>
               </button>
             </div>
             <ul className="side-nav-list" onClick={toggleMobileNav}>

@@ -42,7 +42,7 @@
 .delete-btn {
   border: none;
   background: none;
-  color: #a1a4bd;
+  fill: #a1a4bd;
 }
 
 .delete-btn:hover,

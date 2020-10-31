@@ -38,3 +38,7 @@ h1 {
 .dark-btn:focus   {
   opacity: .9;
 }
+
+.star {
+  margin-right: 4px;
+}
