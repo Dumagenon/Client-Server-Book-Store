@@ -42,3 +42,6 @@ h1 {
 .star {
   margin-right: 4px;
 }
+.card {
+  box-shadow: none;
+}
