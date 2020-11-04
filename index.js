@@ -31,7 +31,7 @@ function listen() {
   }
 }
 
-function connect() {
+function connectDB() {
   if (reconnectDelay < 90000) {
     reconnectDelay *= 2;
   }
@@ -46,7 +46,8 @@ function connect() {
 }
 
 mongoose.connection
-  .on('disconnected', connect)
-  .once('open', listen);
+  .on('disconnected', connectDB);
 
-connect();
+connectDB();
+
+listen();

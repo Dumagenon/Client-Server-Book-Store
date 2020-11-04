@@ -26,8 +26,10 @@ const NavMenu = () => {
         });
       } catch (e) {}
     }
-    getOrderSize();
-  }, [dispatch, request, auth.token]);
+    if (auth.isAuth) {
+      getOrderSize();
+    }
+  }, [dispatch, request, auth.token, auth.isAuth]);
 
   useEffect(() => {
     message(error);

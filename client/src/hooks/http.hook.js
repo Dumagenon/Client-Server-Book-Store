@@ -13,6 +13,11 @@ export const useHttp = () => {
       }
       
       const res = await fetch(url, { method, body, headers });
+
+      if (!res.ok && res.statusText === 'Internal Server Error') {
+        throw new Error(res.statusText);
+      }
+
       const data = await res.json();
 
       if (!res.ok) {
