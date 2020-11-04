@@ -31,11 +31,6 @@ function listen() {
   }
 }
 
-mongoose.connection
-.on('error', (err) => console.log(err.message))
-.on('disconnected', connect)
-.once('open', listen);
-
 function connect() {
   if (reconnectDelay < 90000) {
     reconnectDelay *= 2;
@@ -45,10 +40,14 @@ function connect() {
       keepAlive: 1,
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true,
-      autoReconnect: false
+      useCreateIndex: true
     });
   }, reconnectDelay);
 }
+
+mongoose.connection
+.on('error', (err) => console.log(err.message))
+.on('disconnected', connect)
+.once('open', listen);
 
 connect();
