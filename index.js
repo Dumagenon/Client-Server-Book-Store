@@ -4,6 +4,8 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 const app = express();
+const PORT = process.env.PORT || 5000;
+let reconnectDelay = 90;
 
 app.use(express.json({ extends: true }));
 
@@ -20,19 +22,33 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-const PORT = process.env.PORT || 5000;
-
-async function start() {
+function listen() {
   try {
-    await mongoose.connect(config.get('mongoUri'), {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true
-    })
-    app.listen(PORT, () => console.log(`Example app listening at http://localhost:${PORT}`));
-  } catch(e) {
-    console.log("Server Error", e.message);
+    app.listen(PORT, () => console.log(`Example app listening at http://localhost:${PORT}`))
+  } catch (e) {
+    console.log("Server error: ", e.message);
+    process.exit(1);
   }
 }
 
-start();
+mongoose.connection
+.on('error', (err) => console.log(err.message))
+.on('disconnected', connect)
+.once('open', listen);
+
+function connect() {
+  if (reconnectDelay < 90000) {
+    reconnectDelay *= 2;
+  }
+  setTimeout(() => {
+    return mongoose.connect(config.get('mongoUri'), {
+      keepAlive: 1,
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      autoReconnect: false
+    });
+  }, reconnectDelay);
+}
+
+connect();
