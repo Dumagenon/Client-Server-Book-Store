@@ -41,13 +41,12 @@ function connect() {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true
-    });
+    }).catch(e => console.log("Connection error:", e.message));
   }, reconnectDelay);
 }
 
 mongoose.connection
-.on('error', (err) => console.log(err.message))
-.on('disconnected', connect)
-.once('open', listen);
+  .on('disconnected', connect)
+  .once('open', listen);
 
 connect();
